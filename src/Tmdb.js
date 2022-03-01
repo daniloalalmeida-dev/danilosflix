@@ -4,7 +4,7 @@
 //const API_KEY = env.API_KEY;
 //const API_BASE_URL = env.API_BASE_URL;
 
-const API_KEY = 'THATS-MY-KEY';
+const API_KEY = 'd7f7161ac12bda1962744e6fe7ef4e1b';
 const API_BASE_URL = 'https://api.themoviedb.org/3/';
 
 const basicFetch = async (endpoint) => {
@@ -41,7 +41,7 @@ export default {
 				slug: 'action',
 				title: 'Ação',
 				items: await basicFetch(
-					`discover/movie?api_key=${API_KEY}&language=pt-BR&with_genres=28`
+					`discover/movie/?api_key=${API_KEY}&language=pt-BR&with_genres=28`
 				),
 			},
 			{
@@ -73,5 +73,29 @@ export default {
 				),
 			},
 		];
+	},
+	getMovieInfo: async (movieId, type) => {
+		let info = {};
+
+		if (movieId) {
+			switch (type) {
+				case 'movie':
+					info = await basicFetch(
+						`movie/${movieId}?api_key=${API_KEY}&language=pt-BR`
+					);
+					break;
+
+				case 'tv':
+					info = await basicFetch(
+						`tv/${movieId}?api_key=${API_KEY}&language=pt-BR`
+					);
+					break;
+
+				default:
+					info = console.log('Data not found');
+					break;
+			}
+		}
+		return info;
 	},
 };
