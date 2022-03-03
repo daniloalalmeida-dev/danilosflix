@@ -1,10 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
-//import env from "react-dotenv";
 
-//const API_KEY = env.API_KEY;
-//const API_BASE_URL = env.API_BASE_URL;
-
-const API_KEY = 'd7f7161ac12bda1962744e6fe7ef4e1b';
+const API_KEY = 'yourApiKeyHere';
 const API_BASE_URL = 'https://api.themoviedb.org/3/';
 
 const basicFetch = async (endpoint) => {
@@ -18,58 +14,58 @@ export default {
 		return [
 			{
 				slug: 'originals',
-				title: 'Originais Netflix',
+				title: 'Only on Daniloflix',
 				items: await basicFetch(
-					`discover/tv?with_network=213&language=pt-BR&api_key=${API_KEY}`
+					`discover/tv?with_network=213&language=en-US&api_key=${API_KEY}`
 				),
 			},
 			{
 				slug: 'trending',
-				title: 'Recomendados para você',
+				title: 'Trending Now',
 				items: await basicFetch(
-					`trending/all/week?language=pt-BR&api_key=${API_KEY}`
+					`trending/all/week?language=en-US&api_key=${API_KEY}`
 				),
 			},
 			{
 				slug: 'toprated',
-				title: 'Em Alta',
+				title: 'Popular on Daniloflix',
 				items: await basicFetch(
-					`movie/top_rated?language=pt-BR&api_key=${API_KEY}`
+					`movie/top_rated?language=en-US&api_key=${API_KEY}`
 				),
 			},
 			{
 				slug: 'action',
-				title: 'Ação',
+				title: 'Action',
 				items: await basicFetch(
-					`discover/movie/?api_key=${API_KEY}&language=pt-BR&with_genres=28`
+					`discover/movie/?api_key=${API_KEY}&language=en-US&with_genres=28`
 				),
 			},
 			{
 				slug: 'comedy',
-				title: 'Comédia',
+				title: 'Comedies',
 				items: await basicFetch(
-					`discover/movie/?api_key=${API_KEY}&language=pt-BR&with_genres=35`
+					`discover/movie/?api_key=${API_KEY}&language=en-US&with_genres=35`
 				),
 			},
 			{
 				slug: 'horror',
-				title: 'Terror',
+				title: 'Horror',
 				items: await basicFetch(
-					`discover/movie/?api_key=${API_KEY}&language=pt-BR&with_genres=27`
+					`discover/movie/?api_key=${API_KEY}&language=en-US&with_genres=27`
 				),
 			},
 			{
 				slug: 'romance',
-				title: 'Romance',
+				title: 'Drama',
 				items: await basicFetch(
-					`discover/movie/?api_key=${API_KEY}&language=pt-BR&with_genres=10749`
+					`discover/movie/?api_key=${API_KEY}&language=en-US&with_genres=10749`
 				),
 			},
 			{
 				slug: 'documentary',
-				title: 'Documentários',
+				title: 'Documentaries',
 				items: await basicFetch(
-					`discover/movie/?api_key=${API_KEY}&language=pt-BR&with_genres=99`
+					`discover/movie/?api_key=${API_KEY}&language=en-US&with_genres=99`
 				),
 			},
 		];
@@ -81,13 +77,13 @@ export default {
 			switch (type) {
 				case 'movie':
 					info = await basicFetch(
-						`movie/${movieId}?api_key=${API_KEY}&language=pt-BR`
+						`movie/${movieId}?api_key=${API_KEY}&language=en-US`
 					);
 					break;
 
 				case 'tv':
 					info = await basicFetch(
-						`tv/${movieId}?api_key=${API_KEY}&language=pt-BR`
+						`tv/${movieId}?api_key=${API_KEY}&language=en-US`
 					);
 					break;
 

@@ -1,9 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
 
 import React, { useEffect, useState } from 'react';
-import MovieRow from './components/MovieRow';
-import Tmdb from './Tmdb';
 import './App.css';
+import Tmdb from './Tmdb';
+import MovieRow from './components/MovieRow';
 import FeatureMovie from './components/FeatureMovie';
 import Header from './components/Header';
 import Footer from './components/Footer';

@@ -1,10 +1,20 @@
 # danilosflix
 A Netflix clone for study purposes only
 
-Under development!!
+if you clone this project, you need to create your user at themoviedb.org;
+Get your API key and the base URL and fill the consts below on Tmdb.js file.
+const API_KEY = 'yourKeyHere';
+const API_BASE_URL = 'https://api.themoviedb.org/3/'; //probably the same base URL
 
-![image](https://user-images.githubusercontent.com/73409121/156088406-1ab81c2e-0561-4bc8-b459-2ca6b2be9f62.png)
+Enjoy!
 
-![image](https://user-images.githubusercontent.com/73409121/155422883-79e0f526-1e04-49f8-bce3-c77fd64ff568.png)
+More details: 
+https://www.loom.com/share/36185b2cbc8743aa8b56203d6eb49262
+
+![image](https://user-images.githubusercontent.com/73409121/156661641-914901e5-aeb1-415b-98de-7acefb8d610e.png)
+
+![image](https://user-images.githubusercontent.com/73409121/156661734-87336296-f490-4615-a866-8515cf180d1b.png)
+
+
 
 
