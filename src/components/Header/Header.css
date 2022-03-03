@@ -4,12 +4,13 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    height: 70px;
-    display: flex;
+    height: 68px;
+    display: flex;   
     justify-content: space-between;
     align-items: center;
-    padding: 0 50px;
+    padding: 0 48px;
     background: transparent;
+    transition: all ease 0.5s;
 }
 
 header.black {
@@ -22,10 +23,39 @@ header.linearBlack {
 
 .header--logo {
     height: 32px;
+    display: flex;
+    flex-direction: row;
 }
 
 .header--logo img {
     height: 100%;
+}
+
+.menu--list ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    margin-block-start: 5px;
+    padding-inline-start: 30px;
+    align-items: center;
+}
+
+.menu--list li {
+    display: inline;
+    list-style-type: disc;
+    padding-left: 25px;
+}
+
+.menu--list a {
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.menu--list :hover {
+    color: rgba(180, 180, 180, 0.85);
+    transition: all ease 0.8s;
 }
 
 .header--user {
@@ -35,4 +65,11 @@ header.linearBlack {
 .header--user img {
     height: 100%;
     border-radius: 3px;
+    
+}
+
+@media (max-width: 760px) {
+    ul {
+        opacity: 0;
+    }
 }

@@ -1,3 +1,4 @@
+import { InfoOutlined, PlayArrow } from '@material-ui/icons';
 import React from 'react';
 import './featureMovie.css';
 
@@ -8,6 +9,11 @@ export default function featureMovieFunc({ item }) {
 	let genres = [];
 	for (let i in item.genres) {
 		genres.push(item.genres[i].name);
+	}
+
+	let description = item.overview;
+	if(description.length > 250) {
+		description = description.substring(0, 250) + '...';
 	}
 
 	return (
@@ -30,13 +36,13 @@ export default function featureMovieFunc({ item }) {
 							{item.number_of_seasons !== 1 ? 's' : ''}
 						</div>
 					</div>
-					<div className='featured--description'>{item.overview}</div>
+					<div className='featured--description'>{description}</div>
 					<div className='featured--buttons'>
 						<a className='featured--watchbutton' href={`watch/${item.id}`}>
-							‣ Assistir
+							<PlayArrow style={{fontSize: 40}}/> Play
 						</a>
-						<a className='featured--mylistbutton' href={`list/add/${item.id}`}>
-							+ Minha Lista
+						<a className='featured--moreInfoButton' href={`list/add/${item.id}`}>
+							<InfoOutlined style={{fontSize: 30}}/> More Info
 						</a>
 					</div>
 					<div className='featured--genres'>

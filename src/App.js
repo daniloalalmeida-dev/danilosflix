@@ -6,18 +6,19 @@ import Tmdb from './Tmdb';
 import './App.css';
 import FeatureMovie from './components/FeatureMovie';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 export default () => {
 	const [movieList, setMovieList] = useState([]);
 	const [featuredData, setFeaturedData] = useState(null);
-	const [blackHeader, setBalckHeader] = useState(true);
+	const [blackHeader, setBalckHeader] = useState(false);
 
 	useEffect(() => {
 		const loadAll = async () => {
 			let list = await Tmdb.getHomeList();
 			setMovieList(list);
 
-			let originals = list.filter((i) => i.slug == 'originals');
+			let originals = list.filter((i) => i.slug === 'originals');
 			let randomChosen = Math.floor(
 				Math.random() * (originals[0].items.results.length - 1)
 			);
@@ -47,11 +48,18 @@ export default () => {
 
 			{featuredData && <FeatureMovie item={featuredData} />}
 
+			{movieList.length <= 0 && (
+				<div className='loading'>
+					<img src='assets/Netflix_LoadTime.gif' alt='loadingImg'/>
+				</div>
+			)}
+
 			<section className='lists'>
 				{movieList.map((item, key) => (
 					<MovieRow key={key} title={item.title} items={item.items} />
 				))}
 			</section>
+			<Footer />
 		</div>
 	);
 };
