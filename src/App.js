@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 export default () => {
 	const [movieList, setMovieList] = useState([]);
 	const [featuredData, setFeaturedData] = useState(null);
-	const [blackHeader, setBalckHeader] = useState(false);
+	const [blackHeader, setBlackHeader] = useState(false);
 
 	useEffect(() => {
 		const loadAll = async () => {
@@ -32,7 +32,7 @@ export default () => {
 
 	useEffect(() => {
 		const scrollListener = () => {
-			window.scrollY > 10 ? setBalckHeader(true) : setBalckHeader(false);
+			window.scrollY > 10 ? setBlackHeader(true) : setBlackHeader(false);
 		};
 
 		window.addEventListener('scroll', scrollListener);
